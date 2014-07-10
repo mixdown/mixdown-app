@@ -21,7 +21,6 @@ suite('Extend Base', function() {
 
     var hi = app.foo.hello();
 
-    assert.equal(typeof(app.foo), 'object', 'Interfaceshould exist');
     assert.equal(app.foo.count, 1, 'Count should be correct (1)');
     assert.equal(hi, 'Hello Bill Murray', 'Should be a number (random)');
 

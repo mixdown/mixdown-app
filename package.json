@@ -1,5 +1,5 @@
 {
-  "name": "mixdown-base-plugin",
+  "name": "mixdown-app",
   "version": "0.0.0",
   "description": "Base plugin implementation for mixdown.js 3.x and above",
   "main": "index.js",
