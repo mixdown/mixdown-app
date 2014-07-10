@@ -16,7 +16,7 @@ var BasePlugin = Class.extend({
           this._plugin[name] = this[name].bind(this);
         } else {
           this._plugin[name] = (function(name, val) {
-            if (val) {
+            if (typeof(val) !== 'undefined') {
               this[name] = val;
             }
             return this[name];
