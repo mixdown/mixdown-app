@@ -6,36 +6,19 @@ Mixdown app and base plugin implementation.
 # Create a Plugin
 
 ```javascript
-var BasePlugin = require('mixdown-app').Plugin;
-var inherits = require('inherits');
+var BasePlugin = require('../../index.js').Plugin;
 
-// we need to call base constructor.
-var HelloPlugin = function(namespace, options) {
-  BasePlugin.call(this, namespace, options);
-};
-
-// extend to attach parent prototype
-inherits(TestPlugin, BasePlugin);
-
-// attach methods here
-HelloPlugin.prototype.attach = function(instance) {
-
-  var self = this;
-
-  this.plugin.hello = function() {
-    self.plugin.count++;
-    return 'Hello ' + self.options.name;
-  };
-
-  this.plugin.count = null;
-
-};
-
-// perform initialization
-HelloPlugin.prototype.init = function(done) {
-  this.plugin.count = 0;
-  done();
-};
+var HelloPlugin = BasePlugin.extend({
+  hello: function() {
+    this.count++;
+    return 'Hello ' + this._options.name;
+  },
+  count: -100,
+  _setup: function(done) {
+    this.count = 0;
+    done();
+  }
+});
 
 
 module.exports = HelloPlugin;

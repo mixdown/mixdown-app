@@ -21,11 +21,11 @@ suite('Extend Base', function() {
 
     var hi = app.foo.hello();
 
-    assert.equal(app.foo.count, 1, 'Count should be correct (1)');
+    assert.equal(app.foo.count(), 1, 'Count should be correct (1)');
     assert.equal(hi, 'Hello Bill Murray', 'Should be a number (random)');
 
     app.foo.hello();
-    assert.equal(app.foo.count, 2, 'Count should be correct (1)');
+    assert.equal(app.foo.count(), 2, 'Count should be correct (1)');
 
     done();
   });
