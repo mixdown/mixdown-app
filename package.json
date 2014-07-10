@@ -1,0 +1,34 @@
+{
+  "name": "mixdown-base-plugin",
+  "version": "0.0.0",
+  "description": "Base plugin implementation for mixdown.js 3.x and above",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R spec -u tdd test/tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mixdown/mixdown-base-plugin.git"
+  },
+  "keywords": [
+    "mixdown",
+    "plugin",
+    "extend"
+  ],
+  "author": "Tommy Messbauer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mixdown/mixdown-base-plugin/issues"
+  },
+  "homepage": "https://github.com/mixdown/mixdown-base-plugin",
+  "devDependencies": {
+    "inherits": "^2.0.1",
+    "mocha": "^1.20.1"
+  },
+  "dependencies": {
+    "async": "^0.9.0"
+  }
+}
