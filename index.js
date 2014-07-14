@@ -7,13 +7,14 @@ var BasePlugin = Class.extend({
     this._namespace = namespace || 'namespace-not-defined';
     this._instance;
     this._options = options || {};
-    this._plugin = {}; // simple pointer to the plugin  
-
+    this._plugin = {
+      _options: this._options
+    }; // simple pointer to the plugin  
 
     for (var name in this) {
       if (!/^(init|constructor)$/.test(name) && !/^_/.test(name)) {
         if (typeof(this[name]) === 'function') {
-          this._plugin[name] = this[name].bind(this);
+          this._plugin[name] = this[name].bind(this._plugin);
         } else {
           this._plugin[name] = (function(name, val) {
             if (typeof(val) !== 'undefined') {

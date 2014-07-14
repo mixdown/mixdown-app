@@ -30,4 +30,9 @@ suite('Extend Base', function() {
     done();
   });
 
+  test('Late bind scalar in _setup()', function(done) {
+    assert.equal(app.foo.uninitialized_var(), 'asdfghjkl', 'Value should be correct');
+    done();
+  });
+
 });
