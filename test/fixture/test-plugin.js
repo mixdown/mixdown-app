@@ -2,7 +2,7 @@ var BasePlugin = require('../../index.js').Plugin;
 
 var HelloPlugin = BasePlugin.extend({
   hello: function() {
-    this.count(this.count() + 1)
+    this.count++;
     return 'Hello ' + this._options.name;
   },
   count: -100,

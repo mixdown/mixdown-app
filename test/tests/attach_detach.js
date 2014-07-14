@@ -7,12 +7,12 @@ suite('Attach/Detach', function() {
 
   setup(function(done) {
     // create plugin
-    var p = new TestPlugin('foo', {
+    var p = new TestPlugin({
       name: 'Bill Murray'
     });
 
     // attach it
-    app.use(p);
+    app.use(p, 'foo');
 
     app.init(done);
   });
