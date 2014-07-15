@@ -1,6 +1,6 @@
 {
   "name": "mixdown-app",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Base plugin implementation for mixdown.js 3.x and above",
   "main": "index.js",
   "directories": {
