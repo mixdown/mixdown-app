@@ -14,7 +14,7 @@ suite('Extend Base', function() {
     // attach it
     app.use(p, 'foo');
 
-    app.init(done);
+    app.setup(done);
   });
 
   test('Extend', function(done) {

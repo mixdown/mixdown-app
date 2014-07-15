@@ -1,6 +1,11 @@
 var App = require('../../index.js').App;
 var TestPlugin = require('../fixture/test-plugin.js');
 var assert = require('assert');
+var event_emitter_interfaces = [
+  "on",
+  "off",
+  "emit"
+];
 
 suite('Attach/Detach', function() {
   var app = new App();
@@ -14,7 +19,7 @@ suite('Attach/Detach', function() {
     // attach it
     app.use(p, 'foo');
 
-    app.init(done);
+    app.setup(done);
   });
 
   test('Attach & Detach', function(done) {
@@ -23,4 +28,25 @@ suite('Attach/Detach', function() {
     assert.equal(app.foo, null, 'Interface is removed');
     done();
   });
+
+  test('Event Emitter', function(done) {
+
+    event_emitter_interfaces.forEach(function(name) {
+      assert.ok(app.foo[name], 'Interface should exist - ' + name);
+    });
+
+    app.on('test-app', function(str) {
+      assert.equal(str, 'success', 'Should match emitted string');
+    });
+
+    app.foo.on('test-foo', function(str) {
+      assert.equal(str, 'success', 'Should match emitted string');
+    });
+
+    app.emit('test-app', 'success');
+    app.emit('test-foo', 'success');
+
+    done();
+  });
+
 });
