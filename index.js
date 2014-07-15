@@ -55,7 +55,7 @@ var App = PubSub.extend({
   setup: function(done) {
 
     var plugins = _.filter(this, function(v, k) {
-      return !/^_/.test(k) && (typeof(v._setup) === 'function');
+      return !/^_/.test(k) && v && (typeof(v._setup) === 'function');
     });
 
     var setup_ops = _.map(plugins, function(p) {
