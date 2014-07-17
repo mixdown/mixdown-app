@@ -17,6 +17,7 @@ var reserved_namespaces = [
   "remove",
   "setup",
   "on",
+  "once",
   "off",
   "emit"
 ];

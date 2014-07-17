@@ -43,8 +43,20 @@ suite('Attach/Detach', function() {
       assert.equal(str, 'success', 'Should match emitted string');
     });
 
+    var once_count = 0;
+    app.foo.once('test-once', function(str) {
+      once_count++;
+      assert.equal(str, 'success', 'Should match emitted string');
+    });
+
     app.emit('test-app', 'success');
     app.emit('test-foo', 'success');
+    app.emit('test-once', 'success');
+    app.emit('test-once', 'success');
+    app.emit('test-once', 'success');
+    app.emit('test-once', 'success');
+
+    assert.equal(once_count, 1, 'Once should only have executed 1 time.');
 
     done();
   });
